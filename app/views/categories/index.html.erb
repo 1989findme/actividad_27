@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% count= 0 %>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%= link_to category.name, category%></td>
+      <td><%= link_to 'Show', category %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% count= count + 1 %>
+    <% end %>
+    El total de Categorias es: <%=count %>
+
+    <% count= 0 %>
+    <% @categories.each do |product| %>
+    <h3><% product%></h3>
+    <% count= count + 1 %>
+        <% end %>
+        <%=count %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>
