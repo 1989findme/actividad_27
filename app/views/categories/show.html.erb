@@ -5,15 +5,14 @@
   <% @category.products.each do |product| %>
   <li>
     <%= product.name %>
+    $<%= product.price %>
     <%= link_to "x", category_product_path(@category, product),
     method: :delete %>
-    <%= product.price %>
     </li>
   <% end %>
 </ul>
 
 <%= form_with(model: [ @category, @product ], local: true) do |form| %>
-<%= form.hidden_field :category_id, value: @category.id %>
 
   <div class="field">
     <%= form.label :name %>
